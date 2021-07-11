@@ -33,8 +33,7 @@ function validateEirCode() {
 }
 
 function validateEmail() {
-  const email = document.getElementById("email");
-  // 
+  const email = document.getElementById("email"); 
   const re = /^([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
   if (!re.test(email.value)) {
@@ -44,4 +43,19 @@ function validateEmail() {
   }
 }
 
-function validatePhone() {}
+function validatePhone() {
+  const phone = document.getElementById("phone");
+  /*
+   Optional parenthesis and optional plus (first bit are literal parenthesis, not group)
+   Second group three digits
+   Third group four digits
+   Groups might be separated by "." , "-" or a space
+   */
+  const re = /^\(?\+?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}$/;
+
+  if (!re.test(phone.value)) {
+    phone.classList.add("is-invalid");
+  } else {
+    phone.classList.remove("is-invalid");
+  }
+}
