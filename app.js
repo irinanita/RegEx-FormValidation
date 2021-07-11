@@ -17,7 +17,7 @@ function validateName() {
 }
 
 function validateEirCode() {
-  const name = document.getElementById("eircode");
+  const eircode = document.getElementById("eircode");
   /* 3-character routing key to identify the area 
    a 4-character unique identifier for each address, for example, A65 F4E2. 
    The routing key is the first 3 characters of an Eircode. The first character is always a letter, followed by 2 numbers
@@ -25,13 +25,23 @@ function validateEirCode() {
   */
   const re = /^[A-Z][0-9]{2}[A-Z0-9]{4}$/i;
 
-  if (!re.test(name.value)) {
-    name.classList.add("is-invalid");
+  if (!re.test(eircode.value)) {
+    eircode.classList.add("is-invalid");
   } else {
-    name.classList.remove("is-invalid");
+    eircode.classList.remove("is-invalid");
   }
 }
 
-function validateEmail() {}
+function validateEmail() {
+  const email = document.getElementById("email");
+  // 
+  const re = /^([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+  if (!re.test(email.value)) {
+    email.classList.add("is-invalid");
+  } else {
+    email.classList.remove("is-invalid");
+  }
+}
 
 function validatePhone() {}
